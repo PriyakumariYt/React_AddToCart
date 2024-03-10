@@ -8,8 +8,17 @@ import Dishes from "./Dishes";
 
 const MainPage = () => {
   const [products, setProducts] = useState(Dishes);
-  const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  // const [cart, setCart] = useState([]);
+  // const [cartCount, setCartCount] = useState(0);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+  // const [cart,setCart] =useState([])
+  const [cartCount, setCartCount] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart).length : 0;
+  });
   const [searchInput, setSearchInput] = useState('');
   const [lastSearchTerm, setLastSearchTerm] = useState('');
 
@@ -78,6 +87,13 @@ const handleSearch = () => {
     setLastSearchTerm(searchInput);
   }
 };
+
+useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  setCartCount(cart.length);
+}, [cart]);
+
+
 return (
 
 <Router>

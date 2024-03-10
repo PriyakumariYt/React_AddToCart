@@ -42,7 +42,10 @@ const ShoppingCart = ({
       <p className="cart-total">Total Amount: ${recalculateTotal()}</p>
 
       {/* Payment button to reset the entire cart */}
+      <div className="payment">
       <button onClick={handlePayment} className="payment-button">Proceed to Payment</button>
+      </div>
+    
     </div>
   );
 };

@@ -259,3 +259,20 @@ margin: auto;
   outline: none;
   border-color: #4caf50; 
 }
+.payment{
+margin-top: 25px;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.payment-button{
+  padding: 10px 7px ;
+  border: none;
+  background: #c6d1d3;
+  font-size: 15px;
+  cursor: pointer;
+}
+.payment-button:hover{
+  background: #45a049;
+  color: #dfdfdf;
+}
